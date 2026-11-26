@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学習シートまとめ（全9教材）</title>
+<title>学習シートまとめ（全8教材）</title>
 <style>
 html,body{margin:0;padding:0;background:#f1f5f9;-webkit-text-size-adjust:100%}
 body{padding-top:50px}
@@ -27,9 +27,6 @@ body{padding-top:50px}
 #t6:checked ~ .tabbar label[for="t6"]{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
 #t7:checked ~ #s7{display:block}
 #t7:checked ~ .tabbar label[for="t7"]{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
-#t8:checked ~ #s8{display:block}
-#t8:checked ~ .tabbar label[for="t8"]{background:#1d4ed8;color:#fff;border-color:#1d4ed8}
-#s8 .combined-study-frame{display:block;width:100%;min-height:calc(100vh - 50px);border:0;background:#f4f7fb}
 /* ===== 各教材のスタイル（教材ごとに名前空間を分離） ===== */
 #s0 *, #s0 *::before, #s0 *::after{
       box-sizing: border-box;
@@ -4241,8 +4238,7 @@ body{padding-top:50px}
 <input class="tab-radio" type="radio" name="maintab" id="t5">
 <input class="tab-radio" type="radio" name="maintab" id="t6">
 <input class="tab-radio" type="radio" name="maintab" id="t7">
-<input class="tab-radio" type="radio" name="maintab" id="t8">
-<nav class="tabbar"><label for="t0">漢文 白文</label><label for="t1">漢文 句法</label><label for="t2">英語 例文</label><label for="t3">地理総合</label><label for="t4">歴史総合</label><label for="t5">生物基礎</label><label for="t6">生物 実践</label><label for="t7">家庭基礎</label><label for="t8">古文・漢文</label></nav>
+<nav class="tabbar"><label for="t0">漢文 白文</label><label for="t1">漢文 句法</label><label for="t2">英語 例文</label><label for="t3">地理総合</label><label for="t4">歴史総合</label><label for="t5">生物基礎</label><label for="t6">生物 実践</label><label for="t7">家庭基礎</label></nav>
 <div class="sheet" id="s0">
 
   <!-- 最上位シート切替ラジオボタン（JavaScript完全不使用・Pure CSS） -->
@@ -13116,27 +13112,5 @@ body{padding-top:50px}
   </main>
 
 </div>
-<div class="sheet" id="s8">
-  <iframe class="combined-study-frame" title="古文助動詞・漢文句法" src="kobun-kanbun-study.html"></iframe>
-</div>
-<script>
-const combinedStudyFrame = document.querySelector('.combined-study-frame');
-let combinedStudyObserver;
-combinedStudyFrame.addEventListener('load', () => {
-  const frameDocument = combinedStudyFrame.contentDocument;
-  if (!frameDocument) return;
-  if (combinedStudyObserver) combinedStudyObserver.disconnect();
-  const resizeFrame = () => {
-    combinedStudyFrame.style.height = `${Math.max(
-      frameDocument.documentElement.scrollHeight,
-      frameDocument.body?.scrollHeight || 0
-    )}px`;
-  };
-  combinedStudyObserver = new ResizeObserver(resizeFrame);
-  combinedStudyObserver.observe(frameDocument.documentElement);
-  if (frameDocument.body) combinedStudyObserver.observe(frameDocument.body);
-  resizeFrame();
-});
-</script>
 </body>
 </html>
